@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+$primary-color: #a5b68d;
+$secondary-color: #fff;
+$accent-color: #da8359;
+$accent-color-2: #fff6ca;
+
+* {
+  text-decoration: none !important;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-drag: none;
+}
+
+*::-moz-selection {
+  background-color: $accent-color;
+}
+
+*::selection {
+  background-color: $accent-color;
+}
+
+.container {
+  max-width: 1450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  &.top-level {
+    height: 100vh;
+    max-width: none;
+    padding: 0;
+  }
+}
+
+.section-title {
+  font-size: clamp(30px, 45px, 4vw);
+  margin-top: 0.5em;
+}
+
+.section-text,
+p {
+  font-size: clamp(15px, 20px, 2vw);
+  margin-top: 0.5em 0;
+}
+
+.navbar {
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  background-color: $primary-color;
+
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  ol {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    border: 0;
+    list-style-type: none;
+  }
+
+  li {
+    position: relative;
+    padding: 25px;
+    font-size: clamp(18px, 25px, 2vw);
+    transition: 0.2s;
+    color: $secondary-color;
+    opacity: 0.75;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &.active {
+      opacity: 1 !important;
+    }
+
+    .underline {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0.15em;
+      background: $accent-color;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2em;
+  font-size: clamp(22px, 30px, 2.5vw);
+  line-height: 0;
+  color: $secondary-color;
+
+  img {
+    width: 1.1em;
+    margin-bottom: -0.1em;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.section {
+  background-color: $accent-color-2;
+}
+
+.section-1 {
+  flex-grow: 1;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .slogan {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 15%;
+    font-size: clamp(40px, 100px, 10vw);
+    font-weight: bold;
+    line-height: 1;
+    user-select: none;
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  .threeD-model {
+    display: grid;
+    place-items: center;
+
+    .canvas {
+      display: grid;
+      place-items: center;
+    }
+  }
+}
