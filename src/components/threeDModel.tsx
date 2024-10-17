@@ -7,7 +7,7 @@ import * as THREE from "three";
 //add orbit controls user can rotate model
 
 function Model() {
-  const model = useLoader(GLTFLoader, "src/assets/pancake.glb");
+  const model = useLoader(GLTFLoader, "pancake.glb");
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((_, delta) => {
