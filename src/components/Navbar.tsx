@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const pages = [
   {
@@ -18,7 +18,13 @@ const pages = [
 ];
 
 function Navbar() {
+  const location = useLocation();
   const [selectedPage, setSelectedPage] = useState(pages[0]);
+
+  useEffect(() => {
+    const currentPage = pages.find((page) => page.link === location.pathname);
+    if (currentPage) setSelectedPage(currentPage);
+  }, []);
 
   return (
     <div className="navbar">

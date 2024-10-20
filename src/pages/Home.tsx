@@ -1,5 +1,6 @@
 import { ReactTyped } from "react-typed";
 import ThreeDModel from "../components/threeDModel";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
           <ThreeDModel />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

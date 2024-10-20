@@ -20,7 +20,7 @@ function Model() {
       object={model.scene}
       scale={3}
       rotation={[0, 0, 0]}
-      position={[0, -1.5, 0]}
+      position={[0, -1.7, 0]}
     />
   );
 }
