@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { IRecipe } from "../interfaces";
 
 export default function Recipe({ Name, Image_link }: IRecipe) {

@@ -6,7 +6,7 @@ $accent-color: #da8359;
 $accent-color-2: #fff6ca;
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -14,7 +14,8 @@ $accent-color-2: #fff6ca;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $accent-color;
+  background-color: #2a2a2a49;
+  // border-radius: 20px;
 }
 
 *::-moz-selection {
@@ -32,6 +33,25 @@ $accent-color-2: #fff6ca;
   padding: 0;
   box-sizing: border-box;
   -webkit-user-drag: none;
+}
+
+body {
+  background-color: $accent-color-2;
+}
+
+.transition-overlay {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary-color;
+  z-index: 100;
+  font-size: clamp(30px, 50px, 4vw);
+  text-transform: capitalize;
+  pointer-events: none;
 }
 
 .container {
@@ -130,7 +150,7 @@ p {
 }
 
 .section {
-  background-color: $accent-color-2;
+  background-color: transparent;
 }
 
 .section-1 {
@@ -150,7 +170,7 @@ p {
     align-items: flex-end;
     padding-bottom: 15%;
     font-size: clamp(40px, 100px, 10vw);
-    color: #3b3b3b;
+    color: #232323;
     font-weight: bold;
     line-height: 1;
     user-select: none;

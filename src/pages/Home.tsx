@@ -1,6 +1,7 @@
 import { ReactTyped } from "react-typed";
 import ThreeDModel from "../components/threeDModel";
 import Footer from "../components/Footer";
+import TransitionOverlay from "../components/TransitionOverlay";
 
 export default function Home() {
   return (
@@ -32,6 +33,8 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+
+      <TransitionOverlay />
     </div>
   );
 }

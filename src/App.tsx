@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="container top-level">
       <Navbar />
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />

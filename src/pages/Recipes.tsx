@@ -4,6 +4,7 @@ import { db } from "../firebase";
 import { IRecipe } from "../interfaces";
 import Recipe from "../components/Recipe";
 import Footer from "../components/Footer";
+import TransitionOverlay from "../components/TransitionOverlay";
 
 const testRecipe: IRecipe = {
   Name: "Greek Salad",
@@ -102,6 +103,8 @@ export default function Recipes() {
       </div>
 
       <Footer />
+
+      <TransitionOverlay />
     </div>
   );
 }
