@@ -1,13 +1,12 @@
 import { ReactTyped } from "react-typed";
 import ThreeDModel from "../components/threeDModel";
-import Footer from "../components/Footer";
 import TransitionOverlay from "../components/TransitionOverlay";
 
 export default function Home() {
   return (
-    <div className="section section-1">
+    <div className="section home">
       <div className="container">
-        <div className="slogan">
+        <div className="slogan section-title">
           <ReactTyped
             strings={[
               "Eat Tasty,<br>Feel Great",
@@ -32,7 +31,6 @@ export default function Home() {
           <ThreeDModel />
         </div>
       </div>
-      <Footer />
 
       <TransitionOverlay />
     </div>

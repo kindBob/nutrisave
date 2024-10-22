@@ -3,8 +3,10 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import { AnimatePresence } from "framer-motion";
-
-//rfc - shortcut to create start code for component
+import Footer from "./components/Footer";
+import About from "./pages/About";
+import RecipePage from "./pages/RecipePage";
+import { NotFoundPage } from "./components/NotFoundPage";
 
 function App() {
   const location = useLocation();
@@ -12,13 +14,16 @@ function App() {
   return (
     <div className="container top-level">
       <Navbar />
-      <AnimatePresence mode="wait">
+      <AnimatePresence initial={false} mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/recipes/:id" element={<RecipePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AnimatePresence>
+      <Footer />
     </div>
   );
 }

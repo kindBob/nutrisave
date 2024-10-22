@@ -8,9 +8,9 @@ import "./index.css";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Router>
-      <SmoothScroll>
-        <App />
-      </SmoothScroll>
+      {/* <SmoothScroll> */}
+      <App />
+      {/* </SmoothScroll> */}
     </Router>
   </StrictMode>
 );
