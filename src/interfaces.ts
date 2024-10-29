@@ -12,5 +12,6 @@ export interface IRecipe {
 }
 
 export interface IRecipeProps extends IRecipe {
+  key: string;
   onClick: () => void;
 }
