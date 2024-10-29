@@ -106,8 +106,8 @@ export default function About() {
           <div className="swot__content">
             {Object.entries(swotData).map(([key, values]) => (
               <div className="swot__part" key={key}>
-                <div className="swot__part-title">{key}</div>
-                <ul className="swot__list list-style_1">
+                <h3 className="swot__part-title section-subtitle">{key}</h3>
+                <ul className="swot__list list-style-1">
                   {values.map((item, index) => (
                     <li className="swot__point list-style-1__point" key={index}>
                       <strong>{item.title}</strong>: {item.description}
@@ -121,7 +121,7 @@ export default function About() {
         <div className="team__container">
           <h2 className="team__title section-title">Our team</h2>
           <div className="team__content">
-            <ul className="team__list list-style_1">
+            <ul className="team__list list-style-1">
               {Object.keys(team).map((key) => {
                 return (
                   <li className="team__point list-style-1__point">

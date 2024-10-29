@@ -27,7 +27,7 @@ $text-color: #232323;
 }
 
 * {
-  text-decoration: none !important;
+  text-decoration: none;
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
@@ -71,11 +71,21 @@ body {
 }
 
 .section-title {
+  width: 100%;
   font-size: clamp(40px, 100px, 10vw);
   color: $text-color;
   font-weight: bold;
   line-height: 1;
   user-select: none;
+}
+
+.section-subtitle {
+  width: fit-content;
+  font-weight: bold;
+  font-size: clamp(26px, 34px, 3vw);
+  margin-bottom: 0.3em;
+  text-transform: capitalize;
+  border-bottom: 3px solid $text-color;
 }
 
 .section-text,
@@ -191,7 +201,7 @@ p {
 .recipes {
   .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     column-gap: 2%;
@@ -255,7 +265,7 @@ p {
   }
 }
 
-.list-style_1 {
+.list-style-1 {
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -266,6 +276,7 @@ p {
 
 .about-us {
   .section-title {
+    padding-bottom: 0.25em;
     margin-bottom: 0.5em;
     border-bottom: 5px solid $text-color;
   }
@@ -285,14 +296,14 @@ p {
     row-gap: 1em;
   }
 
-  &__part-title {
-    width: min-content;
-    font-weight: bold;
-    font-size: clamp(26px, 34px, 3vw);
-    margin-bottom: 0.3em;
-    text-transform: capitalize;
-    border-bottom: 3px solid $text-color;
-  }
+  // &__part-title {
+  //   width: min-content;
+  //   font-weight: bold;
+  //   font-size: clamp(26px, 34px, 3vw);
+  //   margin-bottom: 0.3em;
+  //   text-transform: capitalize;
+  //   border-bottom: 3px solid $text-color;
+  // }
 }
 
 .not-found {
@@ -306,6 +317,39 @@ p {
   .home {
     font-size: clamp(35px, 40px, 7vw);
     text-decoration: underline !important;
+  }
+}
+
+.recipe-page {
+  &__image {
+    width: clamp(250px, 750px, 100vw);
+    border: 5px solid $accent-color;
+    border-radius: 20px;
+  }
+
+  .section-title {
+    padding-bottom: 0.25em;
+    margin-bottom: 0.25em;
+    border-bottom: 5px solid $text-color;
+  }
+
+  .container {
+    padding-top: clamp(20px, 40px, 4vw);
+    padding-bottom: clamp(20px, 40px, 4vw);
+    row-gap: clamp(25px, 50px, 6vw);
+    color: $text-color;
+  }
+
+  &__content {
+    column-gap: 2vw;
+    display: flex;
+    flex-direction: row;
+    // row-gap: 10%;
+  }
+
+  &__subtitle.price {
+    text-align: right;
+    border-bottom: none;
   }
 }
 
