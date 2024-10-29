@@ -199,6 +199,9 @@ p {
 }
 
 .recipes {
+  flex-grow: 1;
+  max-height: 90vh;
+
   .container {
     display: flex;
     flex-direction: column;
@@ -208,7 +211,8 @@ p {
     row-gap: 2vw;
     padding-top: clamp(20px, 40px, 4vw);
     padding-bottom: clamp(20px, 40px, 4vw);
-    height: max-content;
+    min-height: 100%;
+    // height: max-content;
   }
 }
 
