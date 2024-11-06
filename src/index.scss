@@ -480,7 +480,6 @@ p {
     max-height: none;
 
     .container {
-      height: max-content;
       flex-direction: column-reverse;
 
       * {
@@ -489,7 +488,7 @@ p {
       }
 
       .threeD-model {
-        min-height: 400px;
+        min-height: 450px;
 
         .canvas {
           * {
