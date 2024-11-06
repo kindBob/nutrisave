@@ -488,16 +488,17 @@ p {
       }
 
       .threeD-model {
-        // min-height: 450px;
+        height: 600px;
 
         .canvas {
           * {
-            min-height: 350px;
+            // height: 150px;
           }
         }
       }
 
       .slogan {
+        height: max-content;
         font-size: clamp(40px, 100px, 10vw);
       }
     }
