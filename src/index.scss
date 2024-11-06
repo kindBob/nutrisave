@@ -65,8 +65,8 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 1rem;
+  padding-right: 1rem;
   color: $secondary-color;
 
   &.top-level {
@@ -213,7 +213,8 @@ p {
     display: flex;
     align-items: flex-end;
     padding-bottom: 5%;
-    // padding: ;
+    padding-left: 1rem;
+    padding-right: 1rem;
     font-size: clamp(50px, 100px, 6.7vw);
     white-space: nowrap;
   }
@@ -228,8 +229,6 @@ p {
 }
 
 .recipes {
-  flex-grow: 1;
-
   .container {
     display: flex;
     flex-direction: column;
@@ -238,7 +237,7 @@ p {
     row-gap: 2vw;
     padding-top: clamp(20px, 40px, 4vw);
     padding-bottom: clamp(20px, 40px, 4vw);
-    min-height: 100%;
+    min-height: 80vh;
     height: max-content;
   }
 
@@ -246,7 +245,7 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     column-gap: 2%;
     row-gap: 2vw;
   }
@@ -254,8 +253,8 @@ p {
 
 .recipe {
   &__container {
-    min-width: 45%;
-    max-width: 50%;
+    width: 45%;
+    min-width: 400px;
     position: relative;
     height: 50vh;
     display: flex;
@@ -271,6 +270,7 @@ p {
     height: 100%;
     width: 100%;
     background-size: cover;
+    background-position: center;
     transition: 0.2s;
 
     &:hover {
@@ -284,7 +284,7 @@ p {
     background: rgba(#6d6d6d, 0.5);
     backdrop-filter: blur(0);
     color: $secondary-color;
-    z-index: 2;
+    z-index: 1;
     transition: 0.4s;
     pointer-events: none;
 
@@ -352,10 +352,11 @@ p {
 }
 
 .recipe-page {
-  &__image {
-    width: clamp(250px, 750px, 100vw);
-    border: 5px solid $accent-color;
-    border-radius: 20px;
+  .container {
+    padding-top: clamp(20px, 40px, 4vw);
+    padding-bottom: clamp(20px, 40px, 4vw);
+    row-gap: clamp(25px, 50px, 6vw);
+    color: $text-color;
   }
 
   .section-title {
@@ -364,18 +365,22 @@ p {
     border-bottom: 5px solid $text-color;
   }
 
-  .container {
-    padding-top: clamp(20px, 40px, 4vw);
-    padding-bottom: clamp(20px, 40px, 4vw);
-    row-gap: clamp(25px, 50px, 6vw);
-    color: $text-color;
-  }
-
   &__content {
     column-gap: 2vw;
     display: flex;
     flex-direction: row;
-    // row-gap: 10%;
+
+    &-text {
+      width: 50%;
+    }
+  }
+
+  &__image-container {
+    flex-grow: 1;
+    border: 5px solid $accent-color;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
   }
 
   &__subtitle.price {
@@ -441,8 +446,37 @@ p {
 }
 
 @media (max-width: 769px) {
+  .recipe-page {
+    &__content {
+      flex-direction: column;
+      row-gap: 5vh;
+
+      * {
+        width: 100%;
+      }
+    }
+
+    &__image-container {
+      height: 70vw;
+    }
+  }
+
+  .recipe {
+    &__container {
+      width: 100%;
+      min-width: 0;
+    }
+
+    &__title {
+      .price {
+        text-align: start;
+      }
+    }
+  }
+
   .home {
     max-height: none;
+
     .container {
       height: max-content;
       flex-direction: column-reverse;
@@ -453,7 +487,7 @@ p {
       }
 
       .slogan {
-        font-size: clamp(50px, 100px, 10vw);
+        font-size: clamp(40px, 100px, 10vw);
       }
     }
   }

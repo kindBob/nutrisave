@@ -54,7 +54,7 @@ export default function RecipeList() {
   const sortedRecipes = [...recipes]
     .filter((recipe) => recipe.Name.toLowerCase().includes(searchQuery))
     .sort((a, b) => {
-      if (sortOption === "price") return +a.Price - +b.Price;
+      if (sortOption === "price") return parseFloat(a.Price) - parseFloat(b.Price);
       if (sortOption === "alphabet") return a.Name.localeCompare(b.Name);
       return 0;
     });
@@ -80,18 +80,22 @@ export default function RecipeList() {
       </div>
 
       <div className="recipe-list">
-        {sortedRecipes.map((recipe) => (
-          <Recipe
-            key={recipe.id}
-            id={recipe.id}
-            Name={recipe.Name}
-            Image_link={recipe.Image_link}
-            Price={recipe.Price}
-            Ingredients={recipe.Ingredients}
-            Preparation={recipe.Preparation}
-            onClick={() => handleRecipeClick(recipe)}
-          />
-        ))}
+        {sortedRecipes.length > 0 ? (
+          sortedRecipes.map((recipe) => (
+            <Recipe
+              key={recipe.id + Math.random() * 100}
+              id={recipe.id}
+              Name={recipe.Name}
+              Image_link={recipe.Image_link}
+              Price={recipe.Price}
+              Ingredients={recipe.Ingredients}
+              Preparation={recipe.Preparation}
+              onClick={() => handleRecipeClick(recipe)}
+            />
+          ))
+        ) : (
+          <div className="recipe">No recipes found</div>
+        )}
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import TransitionOverlay from "../components/TransitionOverlay";
 
 export default function RecipePage() {
   const location = useLocation();
-  console.log(location.state);
   const { recipe } = location.state || {};
 
   if (!recipe) return <NotFoundPage />;
@@ -14,7 +13,9 @@ export default function RecipePage() {
       <div className="container">
         <h2 className="section-title recipe-page__title">{recipe.Name}</h2>
         <div className="recipe-page__content">
-          <img className="recipe-page__image" src={recipe.Image_link} alt="Recipe image" />
+          <div
+            className="recipe-page__image-container"
+            style={{ backgroundImage: `url(${recipe.Image_link})` }}></div>
           <div className="recipe-page__content-text">
             <h3 className="recipe-page__subtitle section-subtitle">Ingredients</h3>
             <ul className="recipe-page__ingredients list-style-1">
