@@ -488,11 +488,11 @@ p {
       }
 
       .threeD-model {
-        min-height: 450px;
+        // min-height: 450px;
 
         .canvas {
           * {
-            min-height: 400px;
+            min-height: 350px;
           }
         }
       }
