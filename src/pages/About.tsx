@@ -124,7 +124,7 @@ export default function About() {
             <ul className="team__list list-style-1">
               {Object.keys(team).map((key) => {
                 return (
-                  <li className="team__point list-style-1__point">
+                  <li key={key} className="team__point list-style-1__point">
                     <strong>{key}</strong> - {team[key]}
                   </li>
                 );
