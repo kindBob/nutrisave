@@ -1,10 +1,8 @@
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 import { GLTFLoader } from "three-stdlib";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import * as THREE from "three";
-
-//add orbit controls user can rotate model
 
 function Model() {
   const model = useLoader(GLTFLoader, "pancake.glb");
@@ -18,9 +16,9 @@ function Model() {
     <primitive
       ref={meshRef}
       object={model.scene}
-      scale={3}
-      rotation={[0, 0, 0]}
-      position={[0, -1.7, 0]}
+      scale={5}
+      rotation={[0, 180, 0]}
+      position={[0, -3.5, 0]}
     />
   );
 }
@@ -28,6 +26,13 @@ function Model() {
 export default function ThreeDModel() {
   return (
     <Canvas className="canvas">
+      {/* Add the OrthographicCamera */}
+      <OrthographicCamera
+        makeDefault
+        position={[0, 1, 5]} // Adjust as needed
+        zoom={50} // Controls the "size" or scale of the model
+      />
+      <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} intensity={1.5} />
       <directionalLight position={[-5, 10, -10]} intensity={1.5} />
       <OrbitControls enableZoom={false} minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />

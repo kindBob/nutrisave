@@ -221,6 +221,7 @@ p {
   }
 
   .threeD-model {
+    height: 100%;
     width: 50%;
 
     .canvas {
@@ -483,8 +484,18 @@ p {
       flex-direction: column-reverse;
 
       * {
-        height: max-content;
+        // height: max-content;
         width: 100%;
+      }
+
+      .threeD-model {
+        min-height: 400px;
+
+        .canvas {
+          * {
+            min-height: 400px;
+          }
+        }
       }
 
       .slogan {
