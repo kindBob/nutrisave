@@ -24,11 +24,11 @@ function Model({ scale }) {
 }
 
 export default function ThreeDModel() {
-  const [scale, setScale] = useState(window.innerWidth > 1024 ? 5.5 : 4.9);
+  const [scale, setScale] = useState(window.innerWidth > 1024 ? 5.5 : 4.5);
 
   useEffect(() => {
     const handleResize = () => {
-      setScale(window.innerWidth > 500 ? 5.5 : 4.9);
+      setScale(window.innerWidth > 500 ? 5.5 : 4.5);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

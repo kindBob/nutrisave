@@ -58,6 +58,7 @@ function Navbar() {
         <ol>
           {pages.map((page) => (
             <Link
+              tabIndex={-1}
               key={page.name}
               to={page.link}
               onClick={() => {

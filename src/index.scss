@@ -135,17 +135,26 @@ p {
   }
 
   ol {
+    height: 100%;
     position: relative;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     margin: 0;
     border: 0;
     list-style-type: none;
     transition: $nav-bar-transition;
     z-index: 4;
+
+    * {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
   }
 
   li {
+    height: 100%;
     position: relative;
     padding: 25px;
     font-size: clamp(22px, 25px, 2vw);
@@ -153,7 +162,6 @@ p {
     color: $secondary-color;
     opacity: 0.75;
     transition: 0.2s;
-    line-height: 0.5;
     cursor: pointer;
 
     &.active {
@@ -166,7 +174,8 @@ p {
       bottom: 0;
       left: 0;
       height: 0.15em;
-      background: $accent-color;
+      // background: rgba($secondary-color, 0.6);
+      background-color: $accent-color;
     }
 
     &:hover {
@@ -507,15 +516,13 @@ p {
       justify-content: flex-start;
       row-gap: 50px;
       transform: translateX(100%);
-      padding-top: 50px;
-      padding: 50px 4em 0 4em;
+      padding: 80px 4em 0 4em;
       text-align: center;
       background-color: $accent-color;
-    }
 
-    .overlay {
-      // display: block;
-      // backdrop-filter: blur(0);
+      * {
+        height: auto;
+      }
     }
   }
 
@@ -523,7 +530,6 @@ p {
     .overlay {
       opacity: 1;
       pointer-events: all;
-      // backdrop-filter: blur(5px);
     }
 
     ol {
@@ -583,23 +589,16 @@ p {
       flex-direction: column-reverse;
 
       * {
-        // height: max-content;
         width: 100%;
       }
 
       .threeD-model {
         height: 600px;
-
-        .canvas {
-          * {
-            // height: 150px;
-          }
-        }
       }
 
       .slogan {
         height: max-content;
-        font-size: clamp(40px, 100px, 10vw);
+        // font-size: clamp(40px, 100px, 10vw);
       }
     }
   }
