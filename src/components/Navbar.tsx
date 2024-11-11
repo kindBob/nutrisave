@@ -4,18 +4,9 @@ import { useEffect, useState } from "react";
 import { Squeeze as Hamburger } from "hamburger-react";
 
 const pages = [
-  {
-    link: "/",
-    name: "home",
-  },
-  {
-    link: "/recipes",
-    name: "recipes",
-  },
-  {
-    link: "/about",
-    name: "about",
-  },
+  { link: "/", name: "home" },
+  { link: "/recipes", name: "recipes" },
+  { link: "/about", name: "about" },
 ];
 
 function Navbar() {
@@ -24,13 +15,25 @@ function Navbar() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   useEffect(() => {
-    const currentPage = pages.find((page) => page.link === location.pathname);
-    if (currentPage) setSelectedPage(currentPage);
+    if (location.pathname.startsWith("/recipes")) {
+      setSelectedPage(pages[1]);
+    } else {
+      const currentPage = pages.find((page) => page.link === location.pathname);
+      if (currentPage) setSelectedPage(currentPage);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const storedNavbarState = localStorage.getItem("navbarOpen");
+    if (storedNavbarState) {
+      setIsNavbarOpen(JSON.parse(storedNavbarState));
+    }
   }, []);
 
   useEffect(() => {
     document.body.style.overflowY = isNavbarOpen ? "hidden" : "auto";
     document.documentElement.style.overflowY = isNavbarOpen ? "hidden" : "auto";
+    localStorage.setItem("navbarOpen", JSON.stringify(isNavbarOpen));
 
     return () => {
       document.body.style.overflowY = "auto";
@@ -41,10 +44,10 @@ function Navbar() {
   return (
     <div className={`navbar ${isNavbarOpen ? "--active" : ""}`}>
       <div className="container">
-        <Link key={pages[0].name} to={pages[0].link}>
+        <Link to={pages[0].link}>
           <div className="logo">
             <img
-              src="coins_icon_white.png"
+              src="/coins_icon_white.png"
               alt="logo icon"
               onClick={() => setSelectedPage(pages[0])}
             />
@@ -71,7 +74,6 @@ function Navbar() {
           ))}
         </ol>
       </div>
-
       <div className="overlay"></div>
     </div>
   );

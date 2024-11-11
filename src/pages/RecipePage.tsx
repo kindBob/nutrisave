@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NotFoundPage } from "../components/NotFoundPage";
 import TransitionOverlay from "../components/TransitionOverlay";
 
@@ -11,7 +11,14 @@ export default function RecipePage() {
   return (
     <div className="section recipe-page">
       <div className="container">
+        <Link className="recipe-page__exit-btn-container" to={"/recipes"}>
+          <div className="recipe-page__exit-btn">
+            <span></span>
+            <span></span>
+          </div>
+        </Link>
         <h2 className="section-title recipe-page__title">{recipe.Name}</h2>
+
         <div className="recipe-page__content">
           <div
             className="recipe-page__image-container"
@@ -37,7 +44,7 @@ export default function RecipePage() {
             </ul>
 
             <h3 className="recipe-page__subtitle section-subtitle">Price for 1 serving</h3>
-            <h3 className="recipe-page__subtitle section-subtitle price">{recipe.Price}</h3>
+            <h3 className="recipe-page__subtitle section-subtitle price">{recipe.Price} €</h3>
           </div>
         </div>
       </div>

@@ -102,7 +102,7 @@ p {
 
 .navbar {
   width: 100%;
-  min-height: 10vh;
+  height: 12.5vh;
   flex-shrink: 0;
   position: relative;
   background-color: $primary-color;
@@ -153,6 +153,7 @@ p {
     color: $secondary-color;
     opacity: 0.75;
     transition: 0.2s;
+    line-height: 0.5;
     cursor: pointer;
 
     &.active {
@@ -164,7 +165,6 @@ p {
       width: 100%;
       bottom: 0;
       left: 0;
-      right: 0;
       height: 0.15em;
       background: $accent-color;
     }
@@ -239,24 +239,60 @@ p {
     row-gap: 2vw;
     padding-top: clamp(20px, 40px, 4vw);
     padding-bottom: clamp(20px, 40px, 4vw);
-    min-height: 80vh;
+    min-height: 77.5vh;
     height: max-content;
   }
 
   .recipe-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-grow: 1;
     justify-content: space-between;
     column-gap: 2%;
     row-gap: 2vw;
+  }
+
+  input,
+  select {
+    border: none;
+    font-size: inherit;
+    padding: 1em;
+    border-radius: 5px;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+  }
+
+  input {
+    border-right: 4px solid $accent-color;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  select {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+  }
+
+  &__not-found {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: $text-color;
+    border: none;
   }
 }
 
 .recipe {
   &__container {
-    width: 45%;
+    width: 100%;
+    // max-width: 50%;
     min-width: 400px;
+    // aspect-ratio: 16 / 5;
     position: relative;
     height: 50vh;
     display: flex;
@@ -274,21 +310,15 @@ p {
     background-size: cover;
     background-position: center;
     transition: 0.2s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
   }
 
   &__title {
     width: 100%;
     padding: 20px;
     background: rgba(#6d6d6d, 0.5);
-    backdrop-filter: blur(0);
     color: $secondary-color;
     z-index: 1;
     transition: 0.4s;
-    pointer-events: none;
 
     .name {
       font-size: clamp(25px, 40px, 4vw);
@@ -303,8 +333,12 @@ p {
     }
   }
 
-  &__container:hover &__title {
+  &__container.--hovered &__title {
     backdrop-filter: blur(10px);
+  }
+
+  &__container.--hovered &__image-container {
+    transform: scale(1.1);
   }
 }
 
@@ -362,6 +396,7 @@ p {
   }
 
   .section-title {
+    position: relative;
     padding-bottom: 0.25em;
     margin-bottom: 0.25em;
     border-bottom: 5px solid $text-color;
@@ -371,6 +406,7 @@ p {
     column-gap: 2vw;
     display: flex;
     flex-direction: row;
+    height: max-content;
 
     &-text {
       width: 50%;
@@ -385,24 +421,73 @@ p {
     background-position: center;
   }
 
+  &__subtitle {
+    margin-top: 0.4em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
   &__subtitle.price {
     text-align: right;
     border-bottom: none;
+  }
+
+  &__exit-btn {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 3em;
+    aspect-ratio: 1 / 1;
+    z-index: 2;
+    background-color: rgba($text-color, 0.5);
+    border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($text-color, 1);
+    }
+
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    span {
+      display: inline-block;
+      position: absolute;
+      width: 70%; // Adjust as needed
+      height: 3px;
+      border-radius: 5px;
+      background-color: $secondary-color;
+    }
+
+    span:first-child {
+      transform: rotate(45deg);
+    }
+
+    span:last-child {
+      transform: rotate(-45deg);
+    }
   }
 }
 
 .footer {
   width: 100%;
+  height: 10vh;
   padding: 1em 0;
   flex-shrink: 0;
   background-color: $primary-color;
-  font-size: clamp(18px, 25px, 2vw);
+  font-size: clamp(22px, 25px, 2vw);
 
   .container {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 }
 
@@ -443,6 +528,21 @@ p {
 
     ol {
       transform: translateX(0);
+    }
+  }
+
+  .recipes {
+    .recipe-list {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .recipe {
+    &__container {
+      width: 100%;
+      min-width: none;
+      max-width: none;
     }
   }
 }
@@ -501,6 +601,25 @@ p {
         height: max-content;
         font-size: clamp(40px, 100px, 10vw);
       }
+    }
+  }
+}
+
+@media (max-width: 435px) {
+  .recipes {
+    input {
+      width: 100%;
+      border-right: none;
+      border-bottom: 4px solid $accent-color;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    select {
+      width: 100%;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
     }
   }
 }
