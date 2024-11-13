@@ -91,10 +91,10 @@ const swotData = {
 };
 
 const team = {
-  IT: "Vladyslav Kostromin",
   Leader: "Sviatoslav Naidenko",
   "Creative manager": "Oleksandr Kletsko",
   Universal: "Maxim Toporivskii",
+  IT: "Vladyslav Kostromin",
 };
 
 export default function About() {
