@@ -26,12 +26,12 @@ function Model({ scale, position }) {
 export default function ThreeDModel() {
   const [isSmallScreen, setIsSmallWindow] = useState(window.innerWidth < 1024);
   const [scale, setScale] = useState(window.innerWidth > 1024 ? 5.5 : 4.5);
-  const [position, setPosition] = useState(window.innerWidth > 769 ? -3.5 : -2);
+  const [position, setPosition] = useState(window.innerWidth > 769 ? -3.5 : -2.45);
 
   useEffect(() => {
     const handleResize = () => {
       setScale(window.innerWidth > 1024 ? 5.5 : 4.5);
-      setPosition(window.innerWidth > 769 ? -3.5 : -2);
+      setPosition(window.innerWidth > 769 ? -3.5 : -2.45);
       setIsSmallWindow(window.innerWidth < 1024);
     };
 

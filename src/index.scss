@@ -362,6 +362,8 @@ p {
 }
 
 .about-us {
+  height: max-content;
+
   .section-title {
     margin-bottom: 0.5em;
     border-bottom: 5px solid $text-color;
@@ -589,10 +591,6 @@ p {
     .container {
       flex-direction: column-reverse;
 
-      // * {
-      //   width: 100%;
-      // }
-
       .threeD-model {
         height: 500px;
         width: 100%;
@@ -600,7 +598,6 @@ p {
 
       .slogan {
         height: max-content;
-        // font-size: clamp(40px, 100px, 10vw);
       }
     }
   }
