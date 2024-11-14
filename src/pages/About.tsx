@@ -1,3 +1,4 @@
+// import GanttChart from "../components/GanttChart";
 import TransitionOverlay from "../components/TransitionOverlay";
 
 const swotData = {
@@ -132,6 +133,8 @@ export default function About() {
             </ul>
           </div>
         </div>
+        <div className="gantt-chart__container"></div>
+        {/* <GanttChart /> */}
       </div>
 
       <TransitionOverlay />
