@@ -60,8 +60,12 @@ export default function RecipeList() {
   const sortedRecipes = [...recipes]
     .filter((recipe) => recipe.Name.toLowerCase().includes(searchQuery))
     .sort((a, b) => {
+      a.Price = a.Price.replace(",", ".");
+      b.Price = b.Price.replace(",", ".");
+
       if (sortOption === "price") return parseFloat(a.Price) - parseFloat(b.Price);
       if (sortOption === "alphabet") return a.Name.localeCompare(b.Name);
+
       return 0;
     });
 
