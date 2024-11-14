@@ -11,12 +11,14 @@ export default function RecipePage() {
   return (
     <div className="section recipe-page">
       <div className="container">
-        <Link className="recipe-page__exit-btn-container" to={"/recipes"}>
-          <div className="recipe-page__exit-btn">
-            <span></span>
-            <span></span>
-          </div>
-        </Link>
+        <div className="recipe-page__exit-btn__wrapper">
+          <Link className="recipe-page__exit-btn__container" to={"/recipes"}>
+            <div className="recipe-page__exit-btn">
+              <span></span>
+              <span></span>
+            </div>
+          </Link>
+        </div>
         <h2 className="section-title recipe-page__title">{recipe.Name}</h2>
 
         <div className="recipe-page__content">

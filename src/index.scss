@@ -288,7 +288,7 @@ p {
   }
 
   &__not-found {
-    width: 100%;
+    width: 200%;
     display: grid;
     place-items: center;
     text-align: center;
@@ -462,15 +462,17 @@ p {
       background-color: rgba($text-color, 1);
     }
 
-    &-container {
+    &__wrapper {
+      width: 100%;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
     }
 
     span {
       display: inline-block;
       position: absolute;
-      width: 70%; // Adjust as needed
+      width: 70%;
       height: 3px;
       border-radius: 5px;
       background-color: $secondary-color;
@@ -544,6 +546,10 @@ p {
     .recipe-list {
       display: grid;
       grid-template-columns: 1fr;
+    }
+
+    &__not-found {
+      width: 100%;
     }
   }
 

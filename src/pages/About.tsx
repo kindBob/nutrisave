@@ -133,7 +133,7 @@ export default function About() {
             </ul>
           </div>
         </div>
-        <div className="gantt-chart__container"></div>
+        {/* <div className="gantt-chart__container"></div> */}
         {/* <GanttChart /> */}
       </div>
 
