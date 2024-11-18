@@ -7,18 +7,6 @@ $accent-color-2: #fff6ca;
 $text-color: #232323;
 $nav-bar-transition: 0.4s;
 
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: $primary-color;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $accent-color;
-}
-
 *::-moz-selection {
   background-color: $accent-color;
 }
@@ -300,9 +288,7 @@ p {
 .recipe {
   &__container {
     width: 100%;
-    // max-width: 50%;
     min-width: 400px;
-    // aspect-ratio: 16 / 5;
     position: relative;
     height: 50vh;
     display: flex;
@@ -513,15 +499,16 @@ p {
     }
 
     ol {
-      height: 100vh;
+      width: 100%;
+      height: max-content;
       position: absolute;
       top: 0;
       right: 0;
       flex-direction: column;
       justify-content: flex-start;
       row-gap: 50px;
-      transform: translateX(100%);
-      padding: 80px 4em 0 4em;
+      transform: translateY(-100%);
+      padding: 80px 4em 25px 4em;
       text-align: center;
       background-color: $accent-color;
 
@@ -534,11 +521,10 @@ p {
   .navbar.--active {
     .overlay {
       opacity: 1;
-      pointer-events: all;
     }
 
     ol {
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
 

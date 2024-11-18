@@ -23,24 +23,6 @@ function Navbar() {
     }
   }, [location.pathname]);
 
-  useEffect(() => {
-    const storedNavbarState = localStorage.getItem("navbarOpen");
-    if (storedNavbarState) {
-      setIsNavbarOpen(JSON.parse(storedNavbarState));
-    }
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflowY = isNavbarOpen ? "hidden" : "auto";
-    document.documentElement.style.overflowY = isNavbarOpen ? "hidden" : "auto";
-    localStorage.setItem("navbarOpen", JSON.stringify(isNavbarOpen));
-
-    return () => {
-      document.body.style.overflowY = "auto";
-      document.documentElement.style.overflowY = "auto";
-    };
-  }, [isNavbarOpen]);
-
   return (
     <div className={`navbar ${isNavbarOpen ? "--active" : ""}`}>
       <div className="container">

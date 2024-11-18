@@ -30,7 +30,7 @@ export default function RecipeList() {
             }
 
             recipeList.push({
-              id: recipeData.id,
+              id: recipeData.id || recipeName.toLowerCase().split(" ").join("_"),
               Name: recipeName,
               Image_link: recipeData.Image_link,
               Price: recipeData.Price,

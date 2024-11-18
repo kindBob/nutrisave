@@ -7,7 +7,10 @@ export default function Recipe({ Name, Image_link, Price, onClick }: IRecipeProp
   return (
     <div
       className={`recipe__container ${isRecipeHovered ? "--hovered" : ""}`}
-      onClick={onClick}
+      onClick={() => {
+        setIsRecipeHovered(true);
+        onClick();
+      }}
       onMouseEnter={() => setIsRecipeHovered(true)}
       onMouseLeave={() => setIsRecipeHovered(false)}>
       <div
