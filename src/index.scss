@@ -94,7 +94,7 @@ p {
   flex-shrink: 0;
   position: relative;
   background-color: $primary-color;
-  z-index: 2;
+  z-index: 5;
 
   .container {
     height: 100%;
@@ -213,7 +213,7 @@ p {
     padding-bottom: 5%;
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: clamp(50px, 100px, 6.7vw);
+    font-size: 7.5vw;
     white-space: nowrap;
   }
 
@@ -492,6 +492,25 @@ p {
 }
 
 // Adaptive
+@media (min-width: 1540px) {
+  .home {
+    .container {
+      flex-direction: column-reverse;
+    }
+
+    .slogan {
+      width: 100%;
+      height: fit-content;
+      font-size: clamp(40px, 120px, 12vw);
+    }
+
+    .threeD-model {
+      min-height: 700px;
+      width: 100%;
+    }
+  }
+}
+
 @media (max-width: 1025px) {
   .navbar {
     .hamburger-react {
@@ -502,29 +521,31 @@ p {
       width: 100%;
       height: max-content;
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 100%;
+      left: 0;
       flex-direction: column;
       justify-content: flex-start;
       row-gap: 50px;
-      transform: translateY(-100%);
       padding: 80px 4em 25px 4em;
       text-align: center;
+      transform: translateY(-100%);
+      opacity: 0;
       background-color: $accent-color;
 
-      * {
-        height: auto;
-      }
+      // * {
+      //   height: auto;
+      // }
     }
   }
 
   .navbar.--active {
-    .overlay {
-      opacity: 1;
-    }
+    // .overlay {
+    //   opacity: 1;
+    // }
 
     ol {
       transform: translateY(0);
+      opacity: 1;
     }
   }
 
@@ -590,6 +611,7 @@ p {
 
       .slogan {
         height: max-content;
+        font-size: clamp(40px, 60px, 12vw);
       }
     }
   }

@@ -30,8 +30,14 @@ export default function ThreeDModel() {
 
   useEffect(() => {
     const handleResize = () => {
-      setScale(window.innerWidth > 1024 ? 5.5 : 4.5);
-      setPosition(window.innerWidth > 769 ? -3.5 : -2.45);
+      const width = window.innerWidth;
+
+      const newScale =
+        width > 1540 ? 7.5 : width < 435 ? 4.5 : width < 769 ? 5 : width < 1100 ? 4.2 : 5.5;
+      const newPosition = width > 1540 ? -5 : width < 769 || width > 1100 ? -3.5 : -4.5;
+
+      setScale(newScale);
+      setPosition(newPosition);
       setIsSmallWindow(window.innerWidth < 1024);
     };
 
