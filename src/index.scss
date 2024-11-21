@@ -94,7 +94,6 @@ p {
   flex-shrink: 0;
   position: relative;
   background-color: $primary-color;
-  z-index: 5;
 
   .container {
     height: 100%;
@@ -117,22 +116,24 @@ p {
   }
 
   .hamburger-react {
-    height: 20px;
     display: none;
     z-index: 5;
   }
 
   ol {
     height: 100%;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0;
-    border: 0;
     list-style-type: none;
     transition: $nav-bar-transition;
     z-index: 4;
+
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0;
+      border: 0;
+    }
 
     * {
       height: 100%;
@@ -213,7 +214,7 @@ p {
     padding-bottom: 5%;
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 7.5vw;
+    font-size: 6.8vw;
     white-space: nowrap;
   }
 
@@ -519,18 +520,25 @@ p {
 
     ol {
       width: 100%;
-      height: max-content;
+      height: auto;
       position: absolute;
       top: 100%;
       left: 0;
-      flex-direction: column;
-      justify-content: flex-start;
-      row-gap: 50px;
-      padding: 80px 4em 25px 4em;
-      text-align: center;
-      transform: translateY(-100%);
+      transform: translateY(-150%);
       opacity: 0;
-      background-color: $accent-color;
+
+      .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        row-gap: 50px;
+        padding: 30px 4em 30px 4em !important;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        text-align: center;
+        background-color: $accent-color;
+      }
 
       // * {
       //   height: auto;

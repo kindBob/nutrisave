@@ -26,7 +26,7 @@ function Navbar() {
   return (
     <div className={`navbar ${isNavbarOpen ? "--active" : ""}`}>
       <div className="container">
-        <Link to={pages[0].link}>
+        <Link to={pages[0].link} draggable={false}>
           <div className="logo">
             <img
               src="/coins_icon_white.png"
@@ -38,23 +38,26 @@ function Navbar() {
         </Link>
         <Hamburger toggled={isNavbarOpen} toggle={setIsNavbarOpen} />
         <ol>
-          {pages.map((page) => (
-            <Link
-              tabIndex={-1}
-              key={page.name}
-              to={page.link}
-              onClick={() => {
-                setSelectedPage(page);
-                setIsNavbarOpen(false);
-              }}>
-              <li className={page === selectedPage ? "active" : ""}>
-                {page.name}
-                {page === selectedPage ? (
-                  <motion.div className="underline" layoutId="underline" />
-                ) : null}
-              </li>
-            </Link>
-          ))}
+          <div className="container">
+            {pages.map((page) => (
+              <Link
+                draggable={false}
+                tabIndex={-1}
+                key={page.name}
+                to={page.link}
+                onClick={() => {
+                  setSelectedPage(page);
+                  setIsNavbarOpen(false);
+                }}>
+                <li className={page === selectedPage ? "active" : ""}>
+                  {page.name}
+                  {page === selectedPage ? (
+                    <motion.div className="underline" layoutId="underline" />
+                  ) : null}
+                </li>
+              </Link>
+            ))}
+          </div>
         </ol>
       </div>
       <div className="overlay"></div>
