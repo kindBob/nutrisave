@@ -66,7 +66,7 @@ body {
 
 .section-title {
   width: 100%;
-  font-size: clamp(40px, 100px, 10vw);
+  font-size: clamp(40px, 100px, 9.5vw);
   color: $text-color;
   font-weight: bold;
   line-height: 1;
@@ -162,9 +162,10 @@ p {
       width: 100%;
       bottom: 0;
       left: 0;
-      height: 0.15em;
-      // background: rgba($secondary-color, 0.6);
+      height: 4.5px;
       background-color: $accent-color;
+      border-top-left-radius: 4.5px;
+      border-top-right-radius: 4.5px;
     }
 
     &:hover {
@@ -223,8 +224,8 @@ p {
     width: 50%;
     pointer-events: none;
 
-    .canvas {
-      height: 100%;
+    canvas {
+      height: 100% !important;
     }
   }
 }
@@ -497,17 +498,23 @@ p {
   .home {
     .container {
       flex-direction: column-reverse;
+      justify-content: flex-end;
     }
 
     .slogan {
       width: 100%;
       height: fit-content;
       font-size: clamp(40px, 120px, 12vw);
+      flex-grow: 1;
     }
 
     .threeD-model {
-      min-height: 700px;
+      height: 1000px;
       width: 100%;
+
+      canvas {
+        height: 1000px !important;
+      }
     }
   }
 }
