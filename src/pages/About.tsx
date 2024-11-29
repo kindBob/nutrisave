@@ -1,3 +1,4 @@
+import GanttChart from "../components/GanttChart";
 import TransitionOverlay from "../components/TransitionOverlay";
 
 const swotData = {
@@ -182,15 +183,111 @@ const financialAnalysis = {
   ],
 };
 
+const feasibilityStudy = {
+  sections: [
+    {
+      title: "Project Summary",
+      content: [
+        "The project aims to create a recipe library platform focused on affordable and nutritious meals.",
+        "The goal is to provide users with easy-to-follow recipes catering to various dietary needs while remaining budget-friendly.",
+        "Revenue will be generated through premium subscriptions, advertising partnerships, and affiliate marketing.",
+      ],
+    },
+    {
+      title: "Technological Considerations",
+      content: [
+        "Use of React and Vite for fast, responsive web development.",
+        "Web hosting through Firebase or similar platforms.",
+        "UI/UX design with tools like Figma or Adobe XD.",
+        "Integration with third-party services for affiliate marketing and payment gateways.",
+        "Estimated initial cost: €1,000; ongoing cost: €50/month.",
+      ],
+    },
+    {
+      title: "Existing Market and Competition",
+      content: [
+        "The online recipe and food-sharing market is growing, with a focus on healthy eating and budget-friendly meals.",
+        "Competition includes established platforms like Allrecipes, Epicurious, and niche blogs.",
+        "The platform will focus on affordable, healthy meals with user-generated content and exclusive premium features.",
+      ],
+    },
+    {
+      title: "Marketing Strategy",
+      content: [
+        "Targeting budget-conscious individuals, young professionals, college students, and families.",
+        "Using social media (Facebook, Instagram, Pinterest) and SEO for organic growth.",
+        "Collaborating with influencers and nutrition experts.",
+        "First-year marketing budget: €2,500.",
+      ],
+    },
+    {
+      title: "Personnel Requirements",
+      content: [
+        "Web developers for site improvements.",
+        "Content creators for recipe writing and media production.",
+        "Marketing managers for user acquisition and engagement.",
+        "Monthly personnel costs: €100 (freelancers).",
+      ],
+    },
+    {
+      title: "Project Timeline and Milestones",
+      content: [
+        "Phase 1: Website setup, content creation, beta testing (1–2 months).",
+        "Phase 2: Official launch with premium subscriptions and marketing campaigns (3–6 months).",
+        "Phase 3: Scaling up with content expansion and partnerships (6+ months).",
+        "Milestones: Website launch (Month 2), 150 premium users (Month 6), break-even (Month 14).",
+      ],
+    },
+    {
+      title: "Financial Considerations",
+      content: [
+        "Initial investment: €5,000 (development, marketing, legal setup).",
+        "Ongoing costs: €300/month (hosting, content, marketing).",
+        "Year 1 Revenue: €7,900; Year 1 Loss: €700.",
+        "Profitability expected in Year 2 with a projected profit of €6,660.",
+      ],
+    },
+    {
+      title: "Cash Flow Analysis",
+      content: [
+        "Year 1: Revenue €7,900; Costs €8,600; Net Loss €700.",
+        "Year 2: Revenue €10,560; Costs €3,900; Net Profit €6,660.",
+      ],
+    },
+    {
+      title: "Risk Analysis",
+      content: [
+        "Market risks: Consumer preferences, competition, market saturation.",
+        "Operational risks: Delays in development or scaling difficulties.",
+        "Financial risks: Slower-than-expected user acquisition or revenue.",
+      ],
+    },
+    {
+      title: "Go/No-Go Criteria",
+      content: [
+        "Go: Achieve 150 paying subscribers in 6 months and positive marketing results.",
+        "No-Go: Fewer than 50 active users in 6 months or insufficient marketing traffic.",
+      ],
+    },
+    {
+      title: "Stakeholder Feedback",
+      content: [
+        "Feedback from users, investors, and experts will be continuously incorporated.",
+        "Strategies will be refined based on stakeholder input.",
+      ],
+    },
+  ],
+};
+
 export default function About() {
   return (
     <div className="section about-us">
       <div className="container">
         <div className="swot__container">
           <h2 className="swot__title section-title">SWOT Analysis</h2>
-          <div className="swot__grid">
+          <div className="swot__grid about-us__grid">
             {Object.entries(swotData).map(([key, values]) => (
-              <div className="swot__item about-us_time" key={key}>
+              <div className="swot__item about-us__item" key={key}>
                 <h3 className="swot__card-title section-subtitle">{key}</h3>
                 <ul className="list-style-1">
                   {values.map((item, index) => (
@@ -225,6 +322,23 @@ export default function About() {
             ))}
           </div>
         </div>
+        <div className="feasibility-study__container">
+          <h2 className="section-title">Feasibility Study</h2>
+          <div className="feasibility-study__grid about-us__grid">
+            {feasibilityStudy.sections.map((section, index) => (
+              <div key={index} className="feasibility-study__item about-us__item">
+                <h3 className="section-subtitle">{section.title}</h3>
+                <ul className="list-style-1">
+                  {section.content.map((item, idx) => (
+                    <li key={idx} className="list-style-1__point">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className="financial-analysis__container">
           <h2 className="section-title">Financial Analysis</h2>
@@ -243,6 +357,8 @@ export default function About() {
             ))}
           </div>
         </div>
+
+        <GanttChart />
 
         <div className="team__container">
           <h2 className="section-title">Our Team</h2>
