@@ -45,6 +45,7 @@ body {
   opacity: 0;
   z-index: 100;
   font-size: clamp(30px, 50px, 4vw);
+  color: #fff;
   pointer-events: none;
 }
 
@@ -197,7 +198,6 @@ p {
 
 .home {
   flex-grow: 1;
-  // max-height: 90vh;
 
   .container {
     width: 100%;
@@ -354,6 +354,7 @@ p {
 
   .section-title {
     margin-bottom: 0.5em;
+    padding-bottom: 0.1em;
     border-bottom: 5px solid $text-color;
   }
 
@@ -362,6 +363,31 @@ p {
     padding-bottom: clamp(20px, 40px, 4vw);
     row-gap: clamp(25px, 50px, 6vw);
     color: $text-color;
+  }
+
+  &__item {
+    padding: 15px;
+    background-color: rgba($primary-color, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .financial-analysis__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .business-plan__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .list-style-1__point {
+    margin-bottom: 10px;
+    line-height: 1.2;
+    color: rgba($text-color, 0.8);
   }
 }
 
@@ -541,7 +567,7 @@ p {
         padding: 30px 4em 30px 4em !important;
         margin-left: 1rem;
         margin-right: 1rem;
-        border-bottom-left-radius: 5px;
+        border-bottom-left-radius: 15px;
         border-bottom-right-radius: 5px;
         text-align: center;
         background-color: $accent-color;
@@ -614,8 +640,6 @@ p {
   }
 
   .home {
-    // max-height: none;
-
     .container {
       flex-direction: column-reverse;
 
@@ -628,6 +652,12 @@ p {
         height: max-content;
         font-size: clamp(40px, 60px, 12vw);
       }
+    }
+  }
+
+  .about-us {
+    &__grid {
+      grid-template-columns: 1fr !important;
     }
   }
 }

@@ -1,4 +1,3 @@
-// import GanttChart from "../components/GanttChart";
 import TransitionOverlay from "../components/TransitionOverlay";
 
 const swotData = {
@@ -98,20 +97,105 @@ const team = {
   IT: "Vladyslav Kostromin",
 };
 
+const businessPlan = {
+  sections: [
+    {
+      title: "Vision",
+      content:
+        "To become the go-to platform for affordable, delicious, and easy-to-prepare recipes.",
+    },
+    {
+      title: "Mission",
+      content:
+        "Empower individuals and families to cook cost-effective meals without compromising on taste or nutrition.",
+    },
+    {
+      title: "Products",
+      content: [
+        "Affordable and tasty recipes.",
+        "Step-by-step instructions with photos and tips.",
+        "Budget breakdown for each recipe.",
+      ],
+    },
+    {
+      title: "Services",
+      content: [
+        "Personalized recommendations based on dietary preferences.",
+        "Integration with shopping lists for easier grocery planning.",
+      ],
+    },
+    {
+      title: "Pricing",
+      content: [
+        "Free basic access.",
+        "Premium subscription for advanced features like meal planning and ad-free experience.",
+      ],
+    },
+    {
+      title: "Advantages",
+      content: [
+        "Saves time and money.",
+        "Promotes healthy eating habits.",
+        "Accessible and user-friendly platform.",
+      ],
+    },
+  ],
+};
+
+const financialAnalysis = {
+  sections: [
+    {
+      title: "Startup Costs",
+      items: [
+        { name: "Website Development", value: "€900" },
+        { name: "Marketing Launch Campaigns", value: "€2,500" },
+        { name: "Personnel", value: "€100" },
+        { name: "Legal and Miscellaneous", value: "€1,500" },
+      ],
+    },
+    {
+      title: "Recurring Costs",
+      items: [
+        { name: "Website Hosting and Maintenance", value: "€50/month" },
+        { name: "Content Creation", value: "€100/month" },
+        { name: "Marketing", value: "€100/month" },
+        { name: "Miscellaneous Expenses", value: "€50/month" },
+      ],
+    },
+    {
+      title: "Revenue Streams",
+      items: [
+        { name: "Premium Subscriptions", value: "€5,400/year" },
+        { name: "Advertising Partnerships", value: "€1,500/year" },
+        { name: "Affiliate Marketing", value: "€1,000/year" },
+      ],
+    },
+    {
+      title: "Summary",
+      items: [
+        { name: "Year 1 Revenue", value: "€7,900" },
+        { name: "Year 1 Cost", value: "€8,600" },
+        { name: "Year 1 Profit", value: "-€700" },
+        { name: "Break-Even", value: "Month 14" },
+      ],
+    },
+  ],
+};
+
 export default function About() {
   return (
     <div className="section about-us">
       <div className="container">
         <div className="swot__container">
-          <h2 className="swot__title section-title">SWOT</h2>
-          <div className="swot__content">
+          <h2 className="swot__title section-title">SWOT Analysis</h2>
+          <div className="swot__grid">
             {Object.entries(swotData).map(([key, values]) => (
-              <div className="swot__part" key={key}>
-                <h3 className="swot__part-title section-subtitle">{key}</h3>
-                <ul className="swot__list list-style-1">
+              <div className="swot__item about-us_time" key={key}>
+                <h3 className="swot__card-title section-subtitle">{key}</h3>
+                <ul className="list-style-1">
                   {values.map((item, index) => (
-                    <li className="swot__point list-style-1__point" key={index}>
-                      <strong>{item.title}</strong>: {item.description}
+                    <li key={index} className="list-style-1__point">
+                      <strong>{item.title}:</strong> {item.description}
                     </li>
                   ))}
                 </ul>
@@ -119,25 +203,59 @@ export default function About() {
             ))}
           </div>
         </div>
-        <div className="team__container">
-          <h2 className="team__title section-title">Our team</h2>
-          <div className="team__content">
-            <ul className="team__list list-style-1">
-              {Object.keys(team).map((key) => {
-                return (
-                  <li key={key} className="team__point list-style-1__point">
-                    <strong>{key}</strong> - {team[key]}
-                  </li>
-                );
-              })}
-            </ul>
+        <div className="business-plan__container">
+          <h2 className="section-title">Business Plan</h2>
+          <div className="business-plan__grid about-us__grid">
+            {businessPlan.sections.map((section, index) => (
+              <div key={index} className="business-plan__item about-us__item">
+                <h3 className="section-subtitle">{section.title}</h3>
+
+                {Array.isArray(section.content) ? (
+                  <ul className="list-style-1">
+                    {section.content.map((item, idx) => (
+                      <li key={idx} className="list-style-1__point">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="list-style-1__point">{section.content}</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
-        {/* <div className="gantt-chart__container"></div> */}
-        {/* <GanttChart /> */}
-      </div>
 
-      <TransitionOverlay />
+        <div className="financial-analysis__container">
+          <h2 className="section-title">Financial Analysis</h2>
+          <div className="financial-analysis__grid about-us__grid">
+            {financialAnalysis.sections.map((section, index) => (
+              <div key={index} className="financial-analysis__item about-us__item">
+                <h3 className="section-subtitle">{section.title}</h3>
+                <ul className="list-style-1">
+                  {section.items.map((item, idx) => (
+                    <li key={idx} className="list-style-1__point">
+                      <strong>{item.name}:</strong> {item.value}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="team__container">
+          <h2 className="section-title">Our Team</h2>
+          <ul className="list-style-1">
+            {Object.keys(team).map((key) => (
+              <li key={key} className="list-style-1__point">
+                <strong>{key}:</strong> {team[key]}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <TransitionOverlay />
+      </div>
     </div>
   );
 }
