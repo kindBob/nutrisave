@@ -406,6 +406,15 @@ p {
     color: $text-color;
     border-radius: 8px;
 
+    a {
+      opacity: 0.7;
+      transition: 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -449,7 +458,8 @@ p {
 
     .table-wrapper {
       width: 100%;
-      overflow-x: scroll;
+      overflow-x: auto;
+      margin-bottom: 10px;
     }
   }
 }

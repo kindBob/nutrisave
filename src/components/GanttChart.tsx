@@ -87,6 +87,16 @@ export default function GanttChart() {
           </tbody>
         </table>
       </div>
+
+      <h3 className="section-subtitle">
+        Image{" "}
+        <a
+          target="_blank"
+          href="https://res.cloudinary.com/dbasroxpf/image/upload/v1732903045/nutrisave_gantt-chart.png"
+          className="list-style-1__point">
+          link
+        </a>
+      </h3>
     </div>
   );
 }
