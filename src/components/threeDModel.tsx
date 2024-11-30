@@ -24,7 +24,6 @@ function Model({ scale, position }) {
 }
 
 export default function ThreeDModel() {
-  const [isSmallScreen, setIsSmallWindow] = useState(window.innerWidth < 1024);
   const [scale, setScale] = useState(0);
   const [position, setPosition] = useState(0);
 
@@ -34,11 +33,10 @@ export default function ThreeDModel() {
 
       const newScale =
         width > 1540 ? 8.5 : width < 435 ? 4.5 : width < 769 ? 5 : width < 1100 ? 4.2 : 5.5;
-      const newPosition = width > 1540 ? -5 : width < 769 || width > 1100 ? -3.5 : -4.5;
+      const newPosition = width > 1540 ? -5 : width < 769 ? -4 : width > 1100 ? -3.5 : -4.5;
 
       setScale(newScale);
       setPosition(newPosition);
-      setIsSmallWindow(window.innerWidth < 1024);
     };
 
     handleResize();
@@ -48,7 +46,7 @@ export default function ThreeDModel() {
   }, []);
 
   return (
-    <Canvas className="canvas" style={{ pointerEvents: isSmallScreen ? "none" : "all" }}>
+    <Canvas className="canvas">
       <OrthographicCamera makeDefault position={[5, 2, 5]} zoom={50} />
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} intensity={1.5} />
