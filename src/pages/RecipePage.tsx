@@ -44,8 +44,8 @@ export default function RecipePage() {
             <ul className="recipe-page__ingredients list-style-1">
               {Object.keys(recipe.Ingredients).map((key) => (
                 <li key={key} className="list-style-1__point">
-                  <strong>{key}</strong>: {recipe.Ingredients[key]["Mass"]} -{" "}
-                  {recipe.Ingredients[key]["Price"]}
+                  <strong>{key}</strong>: {recipe.Ingredients[key]["mass"]} -{" "}
+                  {recipe.Ingredients[key]["price"]}
                 </li>
               ))}
             </ul>
@@ -60,7 +60,7 @@ export default function RecipePage() {
             </ul>
 
             <h3 className="recipe-page__subtitle section-subtitle">Price for 1 serving</h3>
-            <h3 className="recipe-page__subtitle section-subtitle price">{recipe.Price} €</h3>
+            <h3 className="recipe-page__subtitle section-subtitle price">{recipe.Price}</h3>
           </div>
         </div>
       </div>
