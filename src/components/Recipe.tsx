@@ -17,7 +17,7 @@ export default function Recipe({ Name, Image_link, Price, onClick }: IRecipeProp
         className="recipe__image-container"
         style={{ backgroundImage: `url(${Image_link})` }}></div>
       <h3 className="recipe__title">
-        <span className="name">{Name}</span> <br /> <span className="price">{Price}€</span>
+        <span className="name">{Name}</span> <br /> <span className="price">{Price}</span>
       </h3>
     </div>
   );

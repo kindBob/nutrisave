@@ -4,8 +4,12 @@ export interface IRecipe {
   Image_link: string;
   Price: string;
   Ingredients: {
-    [key: string]: string;
+    [key: string]: {
+      mass: string;
+      price: string;
+    };
   };
+
   Preparation: {
     [key: string]: string;
   };

@@ -1,12 +1,26 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { NotFoundPage } from "../components/NotFoundPage";
 import TransitionOverlay from "../components/TransitionOverlay";
+import { IRecipe } from "../interfaces";
+import { recipeList } from "./RecipeList";
 
 export default function RecipePage() {
-  const location = useLocation();
-  const { recipe } = location.state || {};
+  const { id } = useParams<{ id: string }>();
 
-  if (!recipe) return <NotFoundPage />;
+  const recipe: IRecipe | undefined = Object.entries(recipeList)
+    .map(([Name, data]) => ({
+      id: data.id,
+      Name,
+      Image_link: data.image_link,
+      Price: data.price,
+      Ingredients: data.ingredients,
+      Preparation: data.preparation,
+    }))
+    .find((r) => r.id === id);
+
+  if (!recipe) {
+    return <NotFoundPage />;
+  }
 
   return (
     <div className="section recipe-page">
