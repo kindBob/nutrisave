@@ -93,7 +93,8 @@ export default function GanttChart() {
         <a
           target="_blank"
           href="https://res.cloudinary.com/dbasroxpf/image/upload/v1732903045/nutrisave_gantt-chart.png"
-          className="list-style-1__point">
+          className="list-style-1__point"
+          style={{ textTransform: "none" }}>
           link
         </a>
       </h3>
