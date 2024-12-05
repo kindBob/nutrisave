@@ -93,7 +93,7 @@ const swotData = {
 
 const team = {
   Leader: "Sviatoslav Naidenko",
-  "Creative manager": "Oleksandr Kletsko",
+  Creative: "Oleksandr Kletsko",
   Universal: "Maxim Toporivskii",
   IT: "Vladyslav Kostromin",
 };

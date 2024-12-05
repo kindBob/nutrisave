@@ -209,6 +209,7 @@ p {
 
 .home {
   flex-grow: 1;
+
   @media screen and (max-width: 435px) {
     //navbar height + footer height
     height: calc(100dvh - 180px);
