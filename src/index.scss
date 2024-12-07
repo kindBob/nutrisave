@@ -359,6 +359,13 @@ p {
   &__container.--hovered &__image-container {
     transform: scale(1.1);
   }
+
+  @media (hover: none) and (pointer: coarse) {
+    &__title {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+  }
 }
 
 .list-style-1 {
