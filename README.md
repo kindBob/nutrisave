@@ -6,6 +6,10 @@ NutriSave is a modern web application designed to help students discover afforda
 
 ---
 
+🌐 Live Demo
+
+https://nutrisave.netlify.app
+
 ## ✨ Features
 
 * Browse recipes in a clean interface
